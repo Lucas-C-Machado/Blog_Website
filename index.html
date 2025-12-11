@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- 
+        SEÇÃO HEAD - METADADOS DO DOCUMENTO
+        ====================================
+        A seção <head> contém informações sobre a página que não são exibidas diretamente,
+        como codificação, viewport (para responsividade), título e links para estilos.
+    -->
+    
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8, permitindo acentos e caracteres especiais -->
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+        Viewport: Essencial para responsividade em dispositivos móveis
+        - width=device-width: A largura da página se adapta à largura do dispositivo
+        - initial-scale=1.0: Define o zoom inicial em 100%
+    -->
+    
+    <meta name="description" content="Um blog didático criado com HTML, CSS e JavaScript puros">
+    <!-- Meta descrição: Aparece nos resultados de busca do Google -->
+    
+    <meta name="keywords" content="blog, tutorial, web development, HTML, CSS, JavaScript">
+    <!-- Palavras-chave para SEO -->
+    
+    <title>Blog Didático - Aprenda Web Development</title>
+    <!-- Título da página que aparece na aba do navegador -->
+    
+    <link rel="stylesheet" href="styles.css">
+    <!-- Link para o arquivo CSS externo que contém todos os estilos da página -->
+    
+</head>
+<body>
+    <!-- 
+        CORPO DO DOCUMENTO
+        ==================
+        Tudo o que está dentro de <body> é exibido no navegador.
+        A estrutura segue padrões semânticos HTML5 para melhor acessibilidade e SEO.
+    -->
+    
+    <!-- CABEÇALHO DA PÁGINA -->
+    <header class="header">
+        <div class="container">
+            <!-- 
+                Container: Um div que limita a largura máxima do conteúdo
+                e centraliza tudo na página para melhor legibilidade
+            -->
+            
+            <h1 class="logo">📚 Blog Didático</h1>
+            <!-- Logo/Título principal do blog -->
+            
+            <!-- NAVEGAÇÃO PRINCIPAL -->
+            <nav class="nav">
+                <!-- 
+                    <nav>: Elemento semântico que agrupa links de navegação
+                    Ajuda leitores de tela e motores de busca a entender a estrutura
+                -->
+                <ul class="nav-list">
+                    <!-- 
+                        <ul>: Lista não ordenada (sem números)
+                        Usamos <ul> e <li> para estruturar menus semanticamente
+                    -->
+                    <li><a href="#home" class="nav-link active">Início</a></li>
+                    <!-- 
+                        class="active": Marca o link atual como ativo
+                        href="#home": Link âncora que aponta para a seção com id="home"
+                    -->
+                    <li><a href="#posts" class="nav-link">Postagens</a></li>
+                    <li><a href="#comments" class="nav-link">Comentários</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="main-content">
+        
+        <!-- SEÇÃO HERO (Introdução) -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h2 class="hero-title">Bem-vindo ao Blog Didático</h2>
+                <p class="hero-subtitle">
+                    Aprenda os fundamentos de desenvolvimento web com exemplos práticos e código comentado
+                </p>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO DE POSTAGENS DO BLOG -->
+        <section id="posts" class="blog-section">
+            <div class="container">
+                <h2 class="section-title">Últimas Postagens</h2>
+                
+                <!-- 
+                    CONTAINER DE POSTAGENS
+                    ======================
+                    As postagens são organizadas em um grid responsivo.
+                    Em dispositivos pequenos: 1 coluna
+                    Em tablets: 2 colunas
+                    Em desktops: 3 colunas
+                    
+                    Cada postagem é um card independente com sua própria imagem,
+                    título, data e conteúdo. Os comentários foram movidos para
+                    o final da página em uma seção separada.
+                -->
+                <div class="blog-grid">
+                    
+                    <!-- POSTAGEM 1 -->
+                    <article class="blog-post">
+                        <!-- 
+                            <article>: Elemento semântico que representa um conteúdo independente
+                            Cada postagem é um artigo que pode ser reutilizado ou compartilhado
+                        -->
+                        
+                        <img src="./img/html.png" 
+                             alt="Introdução ao HTML" 
+                             class="post-image">
+                        <!-- 
+                            Imagem da postagem
+                            - src: URL da imagem
+                            - alt: Texto alternativo (importante para acessibilidade e SEO)
+                            - class: Estilos CSS aplicados
+                        -->
+                        
+                        <div class="post-content">
+                            <!-- Wrapper para o conteúdo textual da postagem -->
+                            
+                            <h3 class="post-title">Introdução ao HTML</h3>
+                            <!-- Título da postagem (h3 porque h1 e h2 já foram usados) -->
+                            
+                            <p class="post-date">📅 15 de Dezembro de 2025</p>
+                            <!-- Data de publicação com ícone -->
+                            
+                            <p class="post-excerpt">
+                                HTML é a base de toda página web. Aprenda sobre tags semânticas,
+                                atributos e como estruturar um documento HTML de forma correta.
+                            </p>
+                            <!-- Resumo/trecho da postagem -->
+                        </div>
+                    </article>
+                    
+                    <!-- POSTAGEM 2 -->
+                    <article class="blog-post">
+                        <img src="./img/css.png" 
+                             alt="Dominando CSS" 
+                             class="post-image">
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">Dominando CSS</h3>
+                            <p class="post-date">📅 10 de Dezembro de 2025</p>
+                            <p class="post-excerpt">
+                                CSS permite estilizar e posicionar elementos HTML. Descubra flexbox,
+                                grid, media queries e como criar layouts responsivos.
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <!-- POSTAGEM 3 -->
+                    <article class="blog-post">
+                        <img src="./img/js.png" 
+                             alt="JavaScript Interativo" 
+                             class="post-image">
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">JavaScript Interativo</h3>
+                            <p class="post-date">📅 5 de Dezembro de 2025</p>
+                            <p class="post-excerpt">
+                                JavaScript traz interatividade às páginas. Aprenda sobre DOM,
+                                eventos, funções e como manipular elementos HTML dinamicamente.
+                            </p>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- SEÇÃO DE COMENTÁRIOS (MOVIDA PARA O FINAL) -->
+        <section id="comments" class="comments-section-wrapper">
+            <div class="container">
+                <h2 class="section-title">Deixe seu Comentário</h2>
+                
+                <!-- 
+                    FORMULÁRIO DE COMENTÁRIOS
+                    ========================
+                    Este formulário permite que os usuários deixem comentários.
+                    Os dados são processados por JavaScript (veja script.js).
+                    
+                    Agora está separado das postagens individuais,
+                    formando uma seção única no final da página.
+                -->
+                
+                <div class="comments-container">
+                    <form id="comment-form" class="comment-form">
+                        <!-- 
+                            id="comment-form": Identificador único para acessar via JavaScript
+                            class="comment-form": Estilos CSS específicos para o formulário
+                        -->
+                        
+                        <div class="form-group">
+                            <!-- Wrapper para organizar campos do formulário -->
+                            
+                            <label for="comment-name">Nome:</label>
+                            <!-- 
+                                <label>: Rótulo associado a um campo de entrada
+                                for="comment-name": Conecta o rótulo ao input com id="comment-name"
+                                Melhora acessibilidade e permite clicar no rótulo para focar o input
+                            -->
+                            
+                            <input 
+                                type="text" 
+                                id="comment-name" 
+                                placeholder="Seu nome"
+                                required>
+                            <!-- 
+                                type="text": Campo de texto simples
+                                id: Identificador único
+                                placeholder: Texto de dica que desaparece ao digitar
+                                required: Torna o campo obrigatório (validação HTML5)
+                            -->
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comment-email">Email:</label>
+                            <input 
+                                type="email" 
+                                id="comment-email" 
+                                placeholder="seu@email.com"
+                                required>
+                            <!-- 
+                                type="email": Valida automaticamente se é um email válido
+                                HTML5 fornece validação nativa
+                            -->
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comment-text">Comentário:</label>
+                            <textarea 
+                                id="comment-text" 
+                                placeholder="Deixe seu comentário aqui..."
+                                rows="4"
+                                required></textarea>
+                            <!-- 
+                                <textarea>: Campo de texto multilinha
+                                rows="4": Define a altura inicial em 4 linhas
+                                Pode ser redimensionado pelo usuário
+                            -->
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Enviar Comentário</button>
+                        <!-- 
+                            type="submit": Botão que envia o formulário
+                            Quando clicado, dispara o evento 'submit' do formulário
+                        -->
+                    </form>
+                    
+                    <!-- LISTA DE COMENTÁRIOS -->
+                    <div id="comments-list" class="comments-list">
+                        <!-- 
+                            id="comments-list": Container onde os comentários serão adicionados dinamicamente
+                            JavaScript insere novos comentários aqui
+                        -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- RODAPÉ DA PÁGINA -->
+    <footer class="footer">
+        <!-- 
+            <footer>: Elemento semântico que agrupa informações de rodapé
+            Geralmente contém links, copyright, redes sociais, etc.
+        -->
+        <div class="container">
+            <p>&copy; 2025 Blog Didático. Todos os direitos reservados.</p>
+            <!-- &copy; é a entidade HTML para o símbolo © -->
+            
+            <p>Criado com ❤️ para fins educacionais</p>
+        </div>
+    </footer>
+    
+    <!-- SCRIPT JAVASCRIPT -->
+    <script src="script.js"></script>
+    <!-- 
+        Link para o arquivo JavaScript externo
+        Este arquivo contém toda a lógica interativa do blog
+        (manipulação de comentários, navegação, etc.)
+    -->
+    
+</body>
+</html>

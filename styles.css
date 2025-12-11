@@ -1,0 +1,720 @@
+/*
+    ============================================
+    BLOG DIDÁTICO - ESTILOS CSS
+    ============================================
+    
+    Este arquivo contém todos os estilos (CSS) para o blog.
+    CSS (Cascading Style Sheets) é usado para estilizar elementos HTML.
+    
+    Estrutura do arquivo:
+    1. Reset e Estilos Globais
+    2. Variáveis CSS (Cores e Tamanhos)
+    3. Estilos Base (body, html)
+    4. Componentes (header, nav, buttons, etc.)
+    5. Layout (grid, flexbox)
+    6. Media Queries (Responsividade)
+*/
+
+/* ============================================
+   1. RESET E ESTILOS GLOBAIS
+   ============================================
+   
+   Removemos os estilos padrão do navegador para ter mais controle
+   sobre a aparência da página.
+*/
+
+* {
+    /* 
+        Seletor universal (*): Seleciona TODOS os elementos
+        margin: 0; padding: 0; Remove espaçamentos padrão
+        box-sizing: border-box; Faz o tamanho incluir padding e border
+    */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============================================
+   2. VARIÁVEIS CSS (Custom Properties)
+   ============================================
+   
+   Variáveis CSS permitem reutilizar valores em todo o arquivo.
+   Sintaxe: --nome-variavel: valor;
+   Uso: color: var(--nome-variavel);
+   
+   Vantagem: Mudança centralizada - altere uma vez, afeta tudo!
+*/
+
+:root {
+    /* 
+        :root: Seletor que representa o elemento raiz do documento
+        Variáveis aqui são acessíveis em todo o CSS
+    */
+    
+    /* CORES */
+    --cor-primaria: #2563eb;      /* Azul principal */
+    --cor-secundaria: #1e40af;    /* Azul escuro */
+    --cor-fundo: #ffffff;         /* Branco */
+    --cor-texto: #1f2937;         /* Cinza escuro */
+    --cor-texto-claro: #6b7280;   /* Cinza médio */
+    --cor-borda: #e5e7eb;         /* Cinza claro */
+    --cor-hover: #f3f4f6;         /* Cinza muito claro */
+    --cor-sucesso: #10b981;       /* Verde */
+    --cor-alerta: #f59e0b;        /* Laranja */
+    
+    /* TAMANHOS DE FONTE */
+    --fonte-pequena: 0.875rem;    /* 14px */
+    --fonte-normal: 1rem;         /* 16px */
+    --fonte-grande: 1.25rem;      /* 20px */
+    --fonte-titulo: 1.875rem;     /* 30px */
+    --fonte-hero: 2.25rem;        /* 36px */
+    
+    /* ESPAÇAMENTO */
+    --espacamento-xs: 0.5rem;     /* 8px */
+    --espacamento-sm: 1rem;       /* 16px */
+    --espacamento-md: 1.5rem;     /* 24px */
+    --espacamento-lg: 2rem;       /* 32px */
+    --espacamento-xl: 3rem;       /* 48px */
+    
+    /* SOMBRAS */
+    --sombra-leve: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --sombra-media: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --sombra-forte: 0 10px 15px rgba(0, 0, 0, 0.1);
+    
+    /* RAIO DE BORDA */
+    --raio: 0.5rem;               /* 8px */
+}
+
+/* ============================================
+   3. ESTILOS BASE
+   ============================================
+*/
+
+html {
+    /* 
+        scroll-behavior: smooth; Faz a rolagem ser suave
+        Quando você clica em um link âncora (#seção), a página rola suavemente
+    */
+    scroll-behavior: smooth;
+}
+
+body {
+    /* 
+        Estilos aplicados ao corpo da página
+        font-family: Define a fonte (família tipográfica)
+        line-height: Espaço entre linhas (importante para legibilidade)
+        color: Cor padrão do texto
+        background-color: Cor de fundo
+    */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo);
+}
+
+/* ============================================
+   4. COMPONENTES
+   ============================================
+*/
+
+/* CONTAINER - Limita largura e centraliza conteúdo */
+.container {
+    /* 
+        max-width: 1200px; Largura máxima em telas grandes
+        margin: 0 auto; Centraliza horizontalmente
+        padding: Espaço interno (varia em media queries)
+    */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--espacamento-sm);
+}
+
+/* CABEÇALHO */
+.header {
+    /* 
+        background-color: Cor de fundo
+        box-shadow: Sombra para criar profundidade
+        position: sticky; Fica fixo ao rolar
+        top: 0; Posição do topo
+        z-index: 100; Fica acima de outros elementos
+    */
+    background-color: var(--cor-fundo);
+    box-shadow: var(--sombra-leve);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: var(--espacamento-md) 0;
+}
+
+.header .container {
+    /* 
+        display: flex; Usa flexbox para alinhar itens
+        justify-content: space-between; Espaço entre logo e nav
+        align-items: center; Alinha verticalmente
+    */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    /* 
+        Logo/título principal do blog
+        font-size: Tamanho da fonte
+        color: Cor do texto
+        text-decoration: none; Remove sublinhado
+    */
+    font-size: var(--fonte-titulo);
+    color: var(--cor-primaria);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* NAVEGAÇÃO */
+.nav-list {
+    /* 
+        display: flex; Alinha itens horizontalmente
+        list-style: none; Remove os pontos da lista
+        gap: Espaço entre itens
+    */
+    display: flex;
+    list-style: none;
+    gap: var(--espacamento-lg);
+}
+
+.nav-link {
+    /* 
+        Link de navegação
+        text-decoration: none; Remove sublinhado
+        color: Cor do texto
+        transition: Animação suave ao passar o mouse
+    */
+    text-decoration: none;
+    color: var(--cor-texto);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    /* 
+        :hover: Estilo quando o mouse passa sobre o elemento
+        Muda a cor para criar feedback visual
+    */
+    color: var(--cor-primaria);
+}
+
+.nav-link.active {
+    /* 
+        .active: Classe adicionada ao link atual
+        Mostra visualmente qual seção está ativa
+    */
+    color: var(--cor-primaria);
+    font-weight: 700;
+}
+
+.nav-link.active::after {
+    /* 
+        ::after: Pseudo-elemento que cria conteúdo após o elemento
+        Aqui criamos uma linha embaixo do link ativo
+    */
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: var(--cor-primaria);
+    border-radius: var(--raio);
+}
+
+/* SEÇÃO HERO (Introdução) */
+.hero {
+    /* 
+        Seção de destaque no topo da página
+        background: Gradiente para visual atraente
+        padding: Espaço interno
+        text-align: center; Centraliza o texto
+    */
+    background: linear-gradient(135deg, var(--cor-primaria), var(--cor-secundaria));
+    color: white;
+    padding: var(--espacamento-xl) var(--espacamento-sm);
+    text-align: center;
+}
+
+.hero-title {
+    /* Título principal da seção hero */
+    font-size: var(--fonte-hero);
+    margin-bottom: var(--espacamento-md);
+    font-weight: 700;
+}
+
+.hero-subtitle {
+    /* Subtítulo da seção hero */
+    font-size: var(--fonte-grande);
+    opacity: 0.95;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* SEÇÃO DE POSTAGENS */
+.blog-section {
+    /* 
+        Seção que contém o grid de postagens
+        padding: Espaço interno
+    */
+    padding: var(--espacamento-xl) var(--espacamento-sm);
+}
+
+.section-title {
+    /* Título de seção */
+    font-size: var(--fonte-titulo);
+    margin-bottom: var(--espacamento-lg);
+    color: var(--cor-texto);
+    text-align: center;
+}
+
+/* GRID DE POSTAGENS */
+.blog-grid {
+    /* 
+        display: grid; Usa CSS Grid para layout
+        grid-template-columns: Define colunas (varia em media queries)
+        gap: Espaço entre itens
+    */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--espacamento-lg);
+    margin-bottom: var(--espacamento-xl);
+}
+
+/* CARTÃO DE POSTAGEM */
+.blog-post {
+    /* 
+        Cada postagem é um cartão
+        background-color: Cor de fundo
+        border-radius: Cantos arredondados
+        overflow: hidden; Faz a imagem respeitar os cantos arredondados
+        box-shadow: Sombra para profundidade
+        transition: Animação ao passar o mouse
+    */
+    background-color: var(--cor-fundo);
+    border-radius: var(--raio);
+    overflow: hidden;
+    box-shadow: var(--sombra-leve);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.blog-post:hover {
+    /* 
+        Efeito ao passar o mouse
+        transform: scale(1.05); Aumenta o tamanho ligeiramente
+        box-shadow: Sombra mais forte
+    */
+    transform: scale(1.05);
+    box-shadow: var(--sombra-media);
+}
+
+.post-image {
+    /* 
+        Imagem da postagem
+        width: 100%; Ocupa toda a largura do container
+        height: 250px; Altura fixa
+        object-fit: cover; Preenche sem distorcer
+        display: block; Remove espaço embaixo (inline-block deixa espaço)
+    */
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.post-content {
+    /* Conteúdo textual da postagem */
+    padding: var(--espacamento-md);
+}
+
+.post-title {
+    /* Título da postagem */
+    font-size: var(--fonte-grande);
+    margin-bottom: var(--espacamento-sm);
+    color: var(--cor-texto);
+}
+
+.post-date {
+    /* Data da postagem */
+    font-size: var(--fonte-pequena);
+    color: var(--cor-texto-claro);
+    margin-bottom: var(--espacamento-sm);
+}
+
+.post-excerpt {
+    /* Resumo da postagem */
+    font-size: var(--fonte-normal);
+    color: var(--cor-texto-claro);
+    line-height: 1.6;
+}
+
+/* POSTAGEM DETALHADA */
+.post-detail {
+    /* Seção com postagem completa */
+    padding: var(--espacamento-xl) var(--espacamento-sm);
+    background-color: var(--cor-hover);
+}
+
+.full-post {
+    /* Container da postagem completa */
+    background-color: var(--cor-fundo);
+    padding: var(--espacamento-lg);
+    border-radius: var(--raio);
+    box-shadow: var(--sombra-leve);
+}
+
+.full-post-image {
+    /* Imagem grande da postagem */
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: var(--raio);
+    margin: var(--espacamento-lg) 0;
+}
+
+.post-body {
+    /* Corpo do texto da postagem */
+    font-size: var(--fonte-normal);
+    line-height: 1.8;
+    color: var(--cor-texto);
+}
+
+.post-body h4 {
+    /* Subtítulos dentro da postagem */
+    font-size: var(--fonte-grande);
+    margin-top: var(--espacamento-lg);
+    margin-bottom: var(--espacamento-sm);
+    color: var(--cor-primaria);
+}
+
+.post-body p {
+    /* Parágrafos dentro da postagem */
+    margin-bottom: var(--espacamento-md);
+}
+
+/* SEÇÃO DE COMENTÁRIOS */
+.comments-section {
+    /* Container dos comentários */
+    margin-top: var(--espacamento-xl);
+    padding-top: var(--espacamento-lg);
+    border-top: 2px solid var(--cor-borda);
+}
+
+.comments-title {
+    /* Título da seção de comentários */
+    font-size: var(--fonte-grande);
+    margin-bottom: var(--espacamento-lg);
+    color: var(--cor-texto);
+}
+
+/* FORMULÁRIO DE COMENTÁRIOS */
+.comment-form {
+    /* 
+        Formulário para adicionar comentários
+        background-color: Cor de fundo
+        padding: Espaço interno
+        border-radius: Cantos arredondados
+    */
+    background-color: var(--cor-hover);
+    padding: var(--espacamento-lg);
+    border-radius: var(--raio);
+    margin-bottom: var(--espacamento-lg);
+}
+
+.form-group {
+    /* 
+        Grupo de formulário (label + input)
+        margin-bottom: Espaço entre grupos
+    */
+    margin-bottom: var(--espacamento-md);
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    /* Label do formulário */
+    font-weight: 600;
+    margin-bottom: var(--espacamento-xs);
+    color: var(--cor-texto);
+}
+
+.form-group input,
+.form-group textarea {
+    /* 
+        Campos de entrada (input e textarea)
+        padding: Espaço interno
+        border: Borda
+        border-radius: Cantos arredondados
+        font-family: Mesma fonte do body
+        font-size: Tamanho da fonte
+        transition: Animação ao focar
+    */
+    padding: var(--espacamento-sm);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+    font-family: inherit;
+    font-size: var(--fonte-normal);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    /* 
+        :focus: Estilo quando o campo está ativo (clicado)
+        outline: none; Remove o outline padrão
+        border-color: Muda a cor da borda
+        box-shadow: Adiciona sombra para destaque
+    */
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* BOTÃO DE ENVIO */
+.btn-submit {
+    /* 
+        Botão para enviar comentário
+        background-color: Cor de fundo
+        color: Cor do texto
+        padding: Espaço interno
+        border: Nenhuma borda
+        border-radius: Cantos arredondados
+        cursor: pointer; Muda o cursor para mão
+        font-weight: Texto em negrito
+        transition: Animação ao passar o mouse
+    */
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: var(--espacamento-sm) var(--espacamento-lg);
+    border: none;
+    border-radius: var(--raio);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--fonte-normal);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    /* Efeito ao passar o mouse */
+    background-color: var(--cor-secundaria);
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
+    /* Efeito ao clicar */
+    transform: translateY(0);
+}
+
+/* LISTA DE COMENTÁRIOS */
+.comments-list {
+    /* Container que exibe os comentários */
+    display: flex;
+    flex-direction: column;
+    gap: var(--espacamento-md);
+}
+
+/* COMENTÁRIO INDIVIDUAL */
+.comment {
+    /* 
+        Cada comentário é exibido como um card
+        background-color: Cor de fundo
+        padding: Espaço interno
+        border-radius: Cantos arredondados
+        border-left: Borda colorida à esquerda
+    */
+    background-color: var(--cor-fundo);
+    padding: var(--espacamento-md);
+    border-radius: var(--raio);
+    border-left: 4px solid var(--cor-primaria);
+}
+
+.comment-author {
+    /* Nome do autor do comentário */
+    font-weight: 700;
+    color: var(--cor-texto);
+    margin-bottom: var(--espacamento-xs);
+}
+
+.comment-email {
+    /* Email do autor (em cinza claro) */
+    font-size: var(--fonte-pequena);
+    color: var(--cor-texto-claro);
+    margin-bottom: var(--espacamento-xs);
+}
+
+.comment-text {
+    /* Texto do comentário */
+    color: var(--cor-texto);
+    line-height: 1.6;
+    margin-bottom: var(--espacamento-xs);
+}
+
+.comment-date {
+    /* Data do comentário */
+    font-size: var(--fonte-pequena);
+    color: var(--cor-texto-claro);
+    font-style: italic;
+}
+
+/* RODAPÉ */
+.footer {
+    /* 
+        Rodapé da página
+        background-color: Cor de fundo
+        color: Cor do texto
+        padding: Espaço interno
+        text-align: center; Centraliza o texto
+        border-top: Borda superior
+    */
+    background-color: var(--cor-texto);
+    color: white;
+    padding: var(--espacamento-lg) var(--espacamento-sm);
+    text-align: center;
+    border-top: 2px solid var(--cor-borda);
+    margin-top: var(--espacamento-xl);
+}
+
+.footer p {
+    /* Parágrafos no rodapé */
+    margin-bottom: var(--espacamento-sm);
+}
+
+/* ============================================
+   5. MEDIA QUERIES (Responsividade)
+   ============================================
+   
+   Media queries permitem aplicar estilos diferentes
+   em diferentes tamanhos de tela.
+   
+   Breakpoints comuns:
+   - Mobile: até 640px
+   - Tablet: 640px a 1024px
+   - Desktop: acima de 1024px
+*/
+
+/* TELAS PEQUENAS (Mobile) */
+@media (max-width: 768px) {
+    /* 
+        Estes estilos se aplicam quando a tela tem até 768px de largura
+        (smartphones e tablets pequenos)
+    */
+    
+    .header .container {
+        /* 
+            flex-direction: column; Alinha itens verticalmente
+            gap: Espaço entre itens
+        */
+        flex-direction: column;
+        gap: var(--espacamento-md);
+    }
+    
+    .nav-list {
+        /* 
+            flex-direction: column; Alinha itens verticalmente
+            width: 100%; Ocupa toda a largura
+        */
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: var(--espacamento-sm);
+    }
+    
+    .hero-title {
+        /* Reduz o tamanho do título em telas pequenas */
+        font-size: 1.875rem;
+    }
+    
+    .hero-subtitle {
+        /* Reduz o tamanho do subtítulo */
+        font-size: 1rem;
+    }
+    
+    .blog-grid {
+        /* 
+            grid-template-columns: 1fr; Uma coluna em telas pequenas
+            Postagens ficam empilhadas verticalmente
+        */
+        grid-template-columns: 1fr;
+    }
+    
+    .section-title {
+        /* Reduz o tamanho do título de seção */
+        font-size: 1.5rem;
+    }
+    
+    .full-post {
+        /* Reduz o padding em telas pequenas */
+        padding: var(--espacamento-md);
+    }
+    
+    .comment-form {
+        /* Reduz o padding do formulário */
+        padding: var(--espacamento-md);
+    }
+}
+
+/* TELAS MÉDIAS (Tablet) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    /* 
+        Estes estilos se aplicam em tablets
+        (entre 769px e 1024px de largura)
+    */
+    
+    .blog-grid {
+        /* 
+            grid-template-columns: repeat(2, 1fr); Duas colunas
+            Postagens ficam lado a lado
+        */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* TELAS GRANDES (Desktop) */
+@media (min-width: 1025px) {
+    /* 
+        Estes estilos se aplicam em desktops
+        (acima de 1025px de largura)
+    */
+    
+    .blog-grid {
+        /* 
+            grid-template-columns: repeat(3, 1fr); Três colunas
+            Postagens ficam em três colunas lado a lado
+        */
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* ============================================
+   NOTAS IMPORTANTES SOBRE CSS
+   ============================================
+   
+   1. CASCATA: Estilos posteriores sobrescrevem anteriores
+      - Regra de especificidade: IDs > Classes > Elementos
+   
+   2. HERANÇA: Alguns estilos são herdados de pais para filhos
+      - color, font-size, font-family são herdados
+      - margin, padding, border NÃO são herdados
+   
+   3. BOX MODEL: Todo elemento tem:
+      - Content (conteúdo)
+      - Padding (espaço interno)
+      - Border (borda)
+      - Margin (espaço externo)
+   
+   4. FLEXBOX vs GRID:
+      - Flexbox: Para layouts unidimensionais (linha ou coluna)
+      - Grid: Para layouts bidimensionais (linhas e colunas)
+   
+   5. RESPONSIVIDADE: Use media queries para adaptar a diferentes telas
+      - Mobile-first: Comece com estilos para mobile
+      - Depois adicione media queries para telas maiores
+*/
