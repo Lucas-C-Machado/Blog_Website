@@ -170,7 +170,23 @@ The entire blog is designed to work on:
 
 ### **Placeholder for screenshots/videos:**
 
-📸 *Insert: mobile and desktop layout side-by-side*
+https://github.com/user-attachments/assets/0911a21e-7ad1-4d1c-8688-d424c235c91e
+
+---
+
+![wellcome](https://github.com/user-attachments/assets/c6193f2c-90a8-42fe-aee2-f8d805d2419f)
+
+---
+
+![posts_more_recently](https://github.com/user-attachments/assets/e1ab91a7-a524-4bb9-a2bc-0a43b022d717)
+
+---
+
+![other_posts](https://github.com/user-attachments/assets/a8016adc-9e8b-4e03-a005-61ad22cb5e67)
+
+---
+
+![footer](https://github.com/user-attachments/assets/fc8714fe-2053-47b0-b253-2aa75bd2cd50)
 
 ---
 
