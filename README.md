@@ -1,5 +1,15 @@
 # Educational Blog
 
+## 🌍 Live Demo (Vercel Deployment)
+
+Access the full project running online:
+
+🔗 https://blog-website-nu-livid.vercel.app/
+
+This link lets visitors explore the blog exactly as intended, including posts, navigation, responsiveness, and comments.
+
+---
+
 ## 📝 Overview
 
 This project is a **didactic blog** developed using **HTML, CSS, and JavaScript**, designed for educational purposes. The goal is to demonstrate fundamental concepts of semantic structure, responsive layout, dynamic interaction, and local data storage in a clear and practical way.
