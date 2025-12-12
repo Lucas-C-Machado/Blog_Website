@@ -27,9 +27,15 @@
     <title>Blog Didático - Aprenda Web Development</title>
     <!-- Título da página que aparece na aba do navegador -->
     
+    <!--Favicon | Logo da página que aparece no navegador do site-->
+    <link rel="icon" type="image/x-icon" href="img/favicon-32x32.png">
+
     <link rel="stylesheet" href="styles.css">
     <!-- Link para o arquivo CSS externo que contém todos os estilos da página -->
     
+    <!-- Link para Font Awesome (Ícones de Redes Sociais) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <body>
     <!-- 
@@ -47,8 +53,8 @@
                 e centraliza tudo na página para melhor legibilidade
             -->
             
-            <h1 class="logo">📚 Blog Didático</h1>
-            <!-- Logo/Título principal do blog -->
+            <h1 class="logo"><a href="#home" style="text-decoration: none; color: inherit;">📚 Blog Didático</a></h1>
+            <!-- Logo/Título principal do blog - Clicável para voltar ao início -->
             
             <!-- NAVEGAÇÃO PRINCIPAL -->
             <nav class="nav">
@@ -66,8 +72,9 @@
                         class="active": Marca o link atual como ativo
                         href="#home": Link âncora que aponta para a seção com id="home"
                     -->
-                    <li><a href="#posts" class="nav-link">Postagens</a></li>
-                    <li><a href="#comments" class="nav-link">Comentários</a></li>
+                    <li><a href="#posts" class="nav-link">Postagens mais recentes</a></li>
+                    <li><a href="#other-posts" class="nav-link">Outras postagens</a></li>
+                    <li><a href="#contact" class="nav-link">Contato</a></li>
                 </ul>
             </nav>
         </div>
@@ -89,59 +96,282 @@
         <!-- SEÇÃO DE POSTAGENS DO BLOG -->
         <section id="posts" class="blog-section">
             <div class="container">
-                <h2 class="section-title">Últimas Postagens</h2>
+                <h2 class="section-title">Postagens Mais Recentes</h2>
                 
                 <!-- 
-                    CONTAINER DE POSTAGENS
-                    ======================
-                    As postagens são organizadas em um grid responsivo.
-                    Em dispositivos pequenos: 1 coluna
-                    Em tablets: 2 colunas
-                    Em desktops: 3 colunas
-                    
-                    Cada postagem é um card independente com sua própria imagem,
-                    título, data e conteúdo. Os comentários foram movidos para
-                    o final da página em uma seção separada.
+                    CONTAINER DE POSTAGENS MAIS RECENTES (GRID)
+                    ==========================================
+                    As 3 postagens mais recentes são exibidas em um layout de grid (cards).
                 -->
                 <div class="blog-grid">
                     
-                    <!-- POSTAGEM 1 -->
-                    <article class="blog-post">
-                        <!-- 
-                            <article>: Elemento semântico que representa um conteúdo independente
-                            Cada postagem é um artigo que pode ser reutilizado ou compartilhado
-                        -->
-                        
-                        <img src="./img/html.png" 
-                             alt="Introdução ao HTML" 
+                    <!-- POSTAGEM 8 (Mais Recente) -->
+                    <article class="blog-post" id="post-8">
+                        <img src="./img/competitive_programming.png" 
+                             alt="Programação Competitiva" 
                              class="post-image">
-                        <!-- 
-                            Imagem da postagem
-                            - src: URL da imagem
-                            - alt: Texto alternativo (importante para acessibilidade e SEO)
-                            - class: Estilos CSS aplicados
-                        -->
                         
                         <div class="post-content">
-                            <!-- Wrapper para o conteúdo textual da postagem -->
-                            
-                            <h3 class="post-title">Introdução ao HTML</h3>
-                            <!-- Título da postagem (h3 porque h1 e h2 já foram usados) -->
-                            
-                            <p class="post-date">📅 15 de Dezembro de 2025</p>
-                            <!-- Data de publicação com ícone -->
-                            
+                            <h3 class="post-title">Programação Competitiva: Como Pensar como um Algoritmo</h3>
+                            <p class="post-date">📅 10 de Janeiro de 2026</p>
                             <p class="post-excerpt">
-                                HTML é a base de toda página web. Aprenda sobre tags semânticas,
-                                atributos e como estruturar um documento HTML de forma correta.
+                                A Programação Competitiva é um esporte mental que envolve a resolução de problemas algorítmicos complexos sob restrições de tempo e memória. É o treino mais rigoroso para aprimorar o raciocínio lógico, a capacidade de decompor problemas e o domínio de estruturas de dados avançadas (como árvores, grafos e programação dinâmica). As habilidades adquiridas são altamente valorizadas no mercado de trabalho.
                             </p>
-                            <!-- Resumo/trecho da postagem -->
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://codeforces.com/" target="_blank">Codeforces (Plataforma de Competições)</a></li>
+                                    <li><a href="https://www.freecodecamp.org/portuguese/news/os-10-sites-da-web-mais-populares-com-desafios-de-programacao/" target="_blank">10 Sites Populares com Desafios</a></li>
+                                </ul>
+                            </div>
                         </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="8">
+                                <div class="form-group">
+                                    <label for="comment-name-8">Nome:</label>
+                                    <input type="text" id="comment-name-8" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-8">Comentário:</label>
+                                    <textarea id="comment-text-8" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-8">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                    </article>
+                    
+                    <!-- POSTAGEM 7 -->
+                    <article class="blog-post" id="post-7">
+                        <img src="./img/ai_frontend.png" 
+                             alt="IA no Front-end" 
+                             class="post-image">
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">A Ascensão da IA no Desenvolvimento Front-end</h3>
+                            <p class="post-date">📅 05 de Janeiro de 2026</p>
+                            <p class="post-excerpt">
+                                A Inteligência Artificial (IA) não é mais uma tecnologia futurista, mas uma ferramenta presente e transformadora no desenvolvimento front-end. Ferramentas baseadas em IA estão atuando como verdadeiros co-pilotos, automatizando tarefas repetitivas, sugerindo trechos de código (como o GitHub Copilot) e gerando designs a partir de prompts de texto.
+                            </p>
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot - Site Oficial</a></li>
+                                    <li><a href="https://www.hostinger.com/br/tutoriais/ia-desenvolvimento-web" target="_blank">23 Ferramentas de Desenvolvimento Web com IA</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="7">
+                                <div class="form-group">
+                                    <label for="comment-name-7">Nome:</label>
+                                    <input type="text" id="comment-name-7" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-7">Comentário:</label>
+                                    <textarea id="comment-text-7" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-7">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                    </article>
+                    
+                    <!-- POSTAGEM 6 -->
+                    <article class="blog-post" id="post-6">
+                        <img src="./img/webassembly.png" 
+                             alt="WebAssembly" 
+                             class="post-image">
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">WebAssembly (Wasm): O Futuro da Performance Web</h3>
+                            <p class="post-date">📅 30 de Dezembro de 2025</p>
+                            <p class="post-excerpt">
+                                WebAssembly (Wasm) é uma tecnologia revolucionária que está mudando o panorama do desenvolvimento web. É um formato de instrução binária de baixo nível que pode ser executado em navegadores modernos com performance quase nativa, permitindo a criação de aplicações complexas (como jogos 3D e editores de vídeo) diretamente no navegador.
+                            </p>
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://webassembly.org/" target="_blank">Site Oficial do WebAssembly</a></li>
+                                    <li><a href="https://developer.mozilla.org/en-US/docs/WebAssembly" target="_blank">Documentação WebAssembly - MDN</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="6">
+                                <div class="form-group">
+                                    <label for="comment-name-6">Nome:</label>
+                                    <input type="text" id="comment-name-6" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-6">Comentário:</label>
+                                    <textarea id="comment-text-6" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-6">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                    </article>
+                    
+                </div>
+                
+                <h2 id="other-posts" class="section-title other-posts-title">Outras Postagens</h2>
+                
+                <!-- 
+                    CONTAINER DE OUTRAS POSTAGENS (LISTA)
+                    =====================================
+                    As 5 postagens mais antigas são exibidas em um layout de lista (um abaixo do outro).
+                    Usaremos a classe 'blog-list' para estilizar.
+                -->
+                <div class="blog-list">
+                    
+                    <!-- POSTAGEM 5 -->
+                    <article class="blog-post list-item" id="post-5">
+                        <img src="./img/coding_championship.png" 
+                             alt="Campeonatos de Codagem" 
+                             class="post-image">
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">Campeonatos de Codagem: Mais que Competição, É Aprendizado</h3>
+                            <p class="post-date">📅 25 de Dezembro de 2025</p>
+                            <p class="post-excerpt">
+                                Os campeonatos de codagem, como Hackathons e competições de programação algorítmica, são ambientes de aprendizado intenso e acelerado. Participar desses eventos não é apenas sobre vencer, mas sobre expandir seu networking, receber feedback valioso e desenvolver habilidades de resolução de problemas sob pressão.
+                            </p>
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://codeforces.com/" target="_blank">Codeforces (Plataforma de Competições)</a></li>
+                                    <li><a href="https://www.beecrowd.com.br/" target="_blank">Beecrowd (Plataforma Brasileira)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="5">
+                                <div class="form-group">
+                                    <label for="comment-name-5">Nome:</label>
+                                    <input type="text" id="comment-name-5" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-5">Comentário:</label>
+                                    <textarea id="comment-text-5" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-5">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                    </article>
+                    
+                    <!-- POSTAGEM 4 -->
+                    <article class="blog-post list-item" id="post-4">
+                        <img src="./img/bootcamp.png" 
+                             alt="Bootcamps de Codagem" 
+                             class="post-image">
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">Bootcamps de Codagem: O Caminho Rápido para a Carreira Tech</h3>
+                            <p class="post-date">📅 20 de Dezembro de 2025</p>
+                            <p class="post-excerpt">
+                                Os Bootcamps de Codagem surgiram como uma alternativa intensiva e focada para quem busca uma transição de carreira rápida para a área de tecnologia. Discutimos o que esperar de um bootcamp, os prós (networking, aprendizado acelerado) e os contras (intensidade, custo). Apresentamos critérios essenciais para escolher o programa certo.
+                            </p>
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://www.coursereport.com/best-coding-bootcamps" target="_blank">Relatório Anual dos Melhores Bootcamps</a></li>
+                                    <li><a href="https://www.forbes.com/advisor/education/bootcamps/best-coding-bootcamps/" target="_blank">Como Escolher o Bootcamp Certo</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="4">
+                                <div class="form-group">
+                                    <label for="comment-name-4">Nome:</label>
+                                    <input type="text" id="comment-name-4" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-4">Comentário:</label>
+                                    <textarea id="comment-text-4" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-4">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                    </article>
+                    
+                    <!-- POSTAGEM 1 -->
+                    <article class="blog-post list-item" id="post-1">
+                        <img src="./img/html_intro.png" 
+                             alt="Introdução ao HTML" 
+                             class="post-image">
+                        
+                        <div class="post-content">
+                            <h3 class="post-title">Introdução ao HTML</h3>
+                            <p class="post-date">📅 15 de Dezembro de 2025</p>
+                            <p class="post-excerpt">
+                                O HTML (HyperText Markup Language) é a espinha dorsal de qualquer página web. Ele define a estrutura e o significado do conteúdo. Exploramos as tags semânticas mais importantes e a importância dos atributos para estruturar um documento HTML5 de forma acessível e otimizada para SEO.
+                            </p>
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML" target="_blank">Documentação Oficial HTML - MDN</a></li>
+                                    <li><a href="https://www.w3schools.com/html/" target="_blank">Tutorial Interativo de HTML - W3Schools</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="1">
+                                <div class="form-group">
+                                    <label for="comment-name-1">Nome:</label>
+                                    <input type="text" id="comment-name-1" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-1">Comentário:</label>
+                                    <textarea id="comment-text-1" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-1">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
                     </article>
                     
                     <!-- POSTAGEM 2 -->
-                    <article class="blog-post">
-                        <img src="./img/css.png" 
+                    <article class="blog-post list-item" id="post-2">
+                        <img src="./img/css_mastery.png" 
                              alt="Dominando CSS" 
                              class="post-image">
                         
@@ -149,15 +379,41 @@
                             <h3 class="post-title">Dominando CSS</h3>
                             <p class="post-date">📅 10 de Dezembro de 2025</p>
                             <p class="post-excerpt">
-                                CSS permite estilizar e posicionar elementos HTML. Descubra flexbox,
-                                grid, media queries e como criar layouts responsivos.
+                                O CSS (Cascading Style Sheets) é o responsável por toda a beleza e apresentação visual da sua página web. Mergulhamos em conceitos como o modelo de caixa, a hierarquia de estilos e as ferramentas de layout modernas: Flexbox para alinhamento unidimensional e CSS Grid para layouts bidimensionais.
                             </p>
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS" target="_blank">Documentação Oficial CSS - MDN</a></li>
+                                    <li><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank">Guia Completo de Flexbox</a></li>
+                                </ul>
+                            </div>
                         </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="2">
+                                <div class="form-group">
+                                    <label for="comment-name-2">Nome:</label>
+                                    <input type="text" id="comment-name-2" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-2">Comentário:</label>
+                                    <textarea id="comment-text-2" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-2">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
                     </article>
                     
-                    <!-- POSTAGEM 3 -->
-                    <article class="blog-post">
-                        <img src="./img/js.png" 
+                    <!-- POSTAGEM 3 (Mais Antiga) -->
+                    <article class="blog-post list-item" id="post-3">
+                        <img src="./img/javascript_interactive.png" 
                              alt="JavaScript Interativo" 
                              class="post-image">
                         
@@ -165,102 +421,38 @@
                             <h3 class="post-title">JavaScript Interativo</h3>
                             <p class="post-date">📅 5 de Dezembro de 2025</p>
                             <p class="post-excerpt">
-                                JavaScript traz interatividade às páginas. Aprenda sobre DOM,
-                                eventos, funções e como manipular elementos HTML dinamicamente.
+                                JavaScript (JS) é a linguagem de programação que traz vida e interatividade às páginas web. O coração da interatividade no front-end é o DOM (Document Object Model). Você aprenderá a manipular o DOM para alterar o conteúdo, estilo e estrutura dos elementos HTML em tempo real, cobrindo também o tratamento de eventos.
                             </p>
+                            <div class="reference-links">
+                                <h4>Referências:</h4>
+                                <ul>
+                                    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript" target="_blank">Documentação Oficial JavaScript - MDN</a></li>
+                                    <li><a href="https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/" target="_blank">Curso Gratuito de JavaScript - freeCodeCamp</a></li>
+                                </ul>
+                            </div>
                         </div>
+                        
+                        <!-- SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
+                        <div class="post-comments-section">
+                            <h4 class="comment-section-title">Comentários sobre esta Postagem</h4>
+                            <form class="comment-form" data-post-id="3">
+                                <div class="form-group">
+                                    <label for="comment-name-3">Nome:</label>
+                                    <input type="text" id="comment-name-3" placeholder="Seu nome" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment-text-3">Comentário:</label>
+                                    <textarea id="comment-text-3" placeholder="Deixe seu comentário aqui..." rows="2" required></textarea>
+                                </div>
+                                <button type="submit" class="btn-submit">Enviar Comentário</button>
+                            </form>
+                            <div class="comments-list" id="comments-list-3">
+                                <!-- Comentários serão carregados aqui -->
+                            </div>
+                        </div>
+                        <!-- FIM SEÇÃO DE COMENTÁRIOS INDIVIDUAL -->
                     </article>
                     
-                </div>
-            </div>
-        </section>
-        
-        <!-- SEÇÃO DE COMENTÁRIOS (MOVIDA PARA O FINAL) -->
-        <section id="comments" class="comments-section-wrapper">
-            <div class="container">
-                <h2 class="section-title">Deixe seu Comentário</h2>
-                
-                <!-- 
-                    FORMULÁRIO DE COMENTÁRIOS
-                    ========================
-                    Este formulário permite que os usuários deixem comentários.
-                    Os dados são processados por JavaScript (veja script.js).
-                    
-                    Agora está separado das postagens individuais,
-                    formando uma seção única no final da página.
-                -->
-                
-                <div class="comments-container">
-                    <form id="comment-form" class="comment-form">
-                        <!-- 
-                            id="comment-form": Identificador único para acessar via JavaScript
-                            class="comment-form": Estilos CSS específicos para o formulário
-                        -->
-                        
-                        <div class="form-group">
-                            <!-- Wrapper para organizar campos do formulário -->
-                            
-                            <label for="comment-name">Nome:</label>
-                            <!-- 
-                                <label>: Rótulo associado a um campo de entrada
-                                for="comment-name": Conecta o rótulo ao input com id="comment-name"
-                                Melhora acessibilidade e permite clicar no rótulo para focar o input
-                            -->
-                            
-                            <input 
-                                type="text" 
-                                id="comment-name" 
-                                placeholder="Seu nome"
-                                required>
-                            <!-- 
-                                type="text": Campo de texto simples
-                                id: Identificador único
-                                placeholder: Texto de dica que desaparece ao digitar
-                                required: Torna o campo obrigatório (validação HTML5)
-                            -->
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="comment-email">Email:</label>
-                            <input 
-                                type="email" 
-                                id="comment-email" 
-                                placeholder="seu@email.com"
-                                required>
-                            <!-- 
-                                type="email": Valida automaticamente se é um email válido
-                                HTML5 fornece validação nativa
-                            -->
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="comment-text">Comentário:</label>
-                            <textarea 
-                                id="comment-text" 
-                                placeholder="Deixe seu comentário aqui..."
-                                rows="4"
-                                required></textarea>
-                            <!-- 
-                                <textarea>: Campo de texto multilinha
-                                rows="4": Define a altura inicial em 4 linhas
-                                Pode ser redimensionado pelo usuário
-                            -->
-                        </div>
-                        
-                        <button type="submit" class="btn-submit">Enviar Comentário</button>
-                        <!-- 
-                            type="submit": Botão que envia o formulário
-                            Quando clicado, dispara o evento 'submit' do formulário
-                        -->
-                    </form>
-                    
-                    <!-- LISTA DE COMENTÁRIOS -->
-                    <div id="comments-list" class="comments-list">
-                        <!-- 
-                            id="comments-list": Container onde os comentários serão adicionados dinamicamente
-                            JavaScript insere novos comentários aqui
-                        -->
-                    </div>
                 </div>
             </div>
         </section>
@@ -268,14 +460,22 @@
     </main>
     
     <!-- RODAPÉ DA PÁGINA -->
-    <footer class="footer">
+    <footer id="contact" class="footer">
         <!-- 
             <footer>: Elemento semântico que agrupa informações de rodapé
             Geralmente contém links, copyright, redes sociais, etc.
         -->
         <div class="container">
             <p>&copy; 2025 Blog Didático. Todos os direitos reservados.</p>
-            <!-- &copy; é a entidade HTML para o símbolo © -->
+            
+            <!-- LINKS DE CONTATO -->
+            <div class="social-links">
+                <a href="https://www.instagram.com/lucas_c_machad0/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/lucas-c-machado-reactjs/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/5555992094317" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:lucascamponogaramachado@gmail.com" aria-label="E-mail"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/Lucas-C-Machado" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
             
             <p>Criado com ❤️ para fins educacionais</p>
         </div>
@@ -283,11 +483,6 @@
     
     <!-- SCRIPT JAVASCRIPT -->
     <script src="script.js"></script>
-    <!-- 
-        Link para o arquivo JavaScript externo
-        Este arquivo contém toda a lógica interativa do blog
-        (manipulação de comentários, navegação, etc.)
-    -->
     
 </body>
 </html>
