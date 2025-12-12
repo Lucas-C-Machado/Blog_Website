@@ -35,8 +35,6 @@ The page is built following semantic best practices for accessibility, SEO, and 
 
 ### **Placeholder for screenshots/videos:**
 
-📸 *Insert: Screenshot of the homepage structure*
-
 ```
 <!-- Example of semantic structure -->
 <header>
@@ -48,6 +46,13 @@ The page is built following semantic best practices for accessibility, SEO, and 
   </nav>
 </header>
 ```
+---
+
+<img width="1919" height="1022" alt="image" src="https://github.com/user-attachments/assets/7ed8f649-9f45-47e6-89c2-c4fb3e71811c" />
+
+---
+
+https://github.com/user-attachments/assets/c41a8e5c-4bd8-4bf8-babd-bd48cf16bf97
 
 ---
 
@@ -69,8 +74,6 @@ The layout uses a combination of:
 
 ### **Placeholder for screenshots/videos:**
 
-📸 *Insert: Screenshot of responsive layout*
-
 ```
 /* Example: grid layout for posts */
 .posts-container {
@@ -79,6 +82,14 @@ The layout uses a combination of:
   gap: 1.5rem;
 }
 ```
+
+---
+
+<img width="1919" height="1023" alt="image" src="https://github.com/user-attachments/assets/5d6afa16-4b40-4f30-941d-8f3295cbd3bc" />
+
+---
+
+https://github.com/user-attachments/assets/e8be1718-7337-43cc-b139-c00e2503bd48
 
 ---
 
@@ -96,8 +107,6 @@ The JavaScript file handles:
 
 ### **Placeholder for screenshots/videos:**
 
-🎬 *Insert: video/GIF of the comment system in action*
-
 ```
 // Example: saving comments
 function saveComment(name, message) {
@@ -106,6 +115,14 @@ function saveComment(name, message) {
   localStorage.setItem("comments", JSON.stringify(comments));
 }
 ```
+
+---
+
+<img width="1917" height="1019" alt="image" src="https://github.com/user-attachments/assets/abd5dff4-308c-452b-a760-ab37624fc913" />
+
+---
+
+https://github.com/user-attachments/assets/e2423a10-77c4-45fb-b4e6-b3430c66bc53
 
 ---
 
@@ -127,7 +144,11 @@ LocalStorage allows comments to remain saved even after closing or refreshing th
 
 ### **Placeholder for screenshots/videos:**
 
-📸 *Insert: screenshot of comments displayed on the page*
+<img width="1919" height="1025" alt="image" src="https://github.com/user-attachments/assets/04049db5-12f6-48eb-825e-02ea8e8c9260" />
+
+---
+
+https://github.com/user-attachments/assets/6880d22c-bcc1-44d7-9ee9-bc2c2fa612f6
 
 ---
 
@@ -205,7 +226,25 @@ Possible enhancements:
 
 ## 📸 Media Section (Screenshots & Videos)
 
-> **Insert your project visuals here**
+<img width="1919" height="1019" alt="image" src="https://github.com/user-attachments/assets/34f2b5fb-2f25-45a5-aa7c-a7017841e220" />
+
+---
+
+<img width="1919" height="1020" alt="image" src="https://github.com/user-attachments/assets/a2055b98-9c30-4c03-b01b-7c25ecb944cc" />
+
+---
+
+<img width="1917" height="1017" alt="image" src="https://github.com/user-attachments/assets/dab1b077-fe95-4e6b-9d7f-91d8a713b89c" />
+
+---
+
+<img width="1917" height="1022" alt="image" src="https://github.com/user-attachments/assets/aa522c95-01ff-4401-bcdf-3800f4605d9e" />
+
+---
+
+https://github.com/user-attachments/assets/a8ac6131-9792-484a-9943-ee041e5bfc0b
+
+---
 
 ### 🖼️ Screenshots
 
